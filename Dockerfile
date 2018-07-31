@@ -1,24 +1,18 @@
-FROM joshendriks/walletbase
+FROM chainmapper/walletbase-xenial
+	
+ENV WALLET_URL=https://github.com/aeriumcoin/AeriumX/releases/download/v2.0/AeriumX-2.0.0-aarch64-linux-gnu.zip
 
-ENV GIT_COIN_URL    https://github.com/aeriumcoin/AeriumX
-ENV GIT_COIN_NAME   aeriumx   
+RUN wget $WALLET_URL -O /tmp/wallet.zip \
+	&& unzip /tmp/wallet.zip -d /usr/local/bin \
+	&& chmod +x /usr/local/bin/*
 
-RUN	git clone $GIT_COIN_URL $GIT_COIN_NAME \
-	&& cd $GIT_COIN_NAME \
-	&& chmod +x autogen.sh \
-	&& chmod +x share/genbuild.sh \
-	&& chmod +x src/leveldb/build_detect_platform \
-	&& ./autogen.sh && ./configure \
-	&& make \
-	&& make install \
-	&& mkdir /data \
-	&& mkdir /data/.aeriumx
-
-#rpc and mn port
+#rpc port & main port
 EXPOSE 35408 35407
 
+RUN mkdir /data
 ENV HOME /data
 
 COPY start.sh /start.sh
-RUN chmod 777 /start.sh
-CMD /start.sh
+COPY gen_config.sh /gen_config.sh
+RUN chmod 777 /*.sh
+CMD /start.sh aeriumx.conf AEX aeriumxd
