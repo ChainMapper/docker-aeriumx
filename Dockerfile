@@ -7,7 +7,7 @@ RUN wget $WALLET_URL -O /tmp/wallet.zip \
 	&& chmod +x /usr/local/bin/*
 
 #rpc port & main port
-EXPOSE 35408 35407
+EXPOSE 6666 35407
 
 RUN mkdir /data
 ENV HOME /data
