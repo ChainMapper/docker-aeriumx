@@ -14,6 +14,6 @@ ENV HOME /data
 
 COPY start.sh /start.sh
 COPY gen_config.sh /gen_config.sh
-COPY wallet.sh /gen_config.sh
+COPY wallet.sh /wallet.sh
 RUN chmod 777 /*.sh
 CMD /start.sh aeriumx.conf AEX aeriumxd
