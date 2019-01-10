@@ -1,13 +1,13 @@
 FROM chainmapper/walletbase-xenial
 	
-ENV WALLET_URL=https://github.com/aeriumcoin/AeriumX/releases/download/v2.0/AeriumX-2.0.0-aarch64-linux-gnu.zip
+ENV WALLET_URL=https://github.com/aeriumcoin/AeriumX/releases/download/v2.1/AeriumX-2.1.0-aarch64-linux-gnu.zip
 
 RUN wget $WALLET_URL -O /tmp/wallet.zip \
 	&& unzip /tmp/wallet.zip -d /usr/local/bin \
 	&& chmod +x /usr/local/bin/*
 
-#rpc port & main port
-EXPOSE 6666 35407
+#zmq, rpc & main port
+EXPOSE 5555 6666 35407
 
 RUN mkdir /data
 ENV HOME /data

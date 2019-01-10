@@ -19,4 +19,5 @@ addnode=178.128.224.233:35407
 addnode=149.28.182.198:35407
 addnode=207.148.86.68:35407
 addnode=167.99.183.17:35407
+zmqpubhashblock=tcp://*:5555
 EOF
