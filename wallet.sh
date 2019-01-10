@@ -1,3 +1,3 @@
 #!/bin/bash
 
-aeriumx-cli -datadir=/data/wallet/ getinfo "$@"
+aeriumx-cli -datadir=/data/wallet/ "$@"
