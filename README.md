@@ -2,7 +2,7 @@
 Wallet and daemon for AeriumX [AEX] cryptocurrency on docker
 
 # Quickstart
-Type `docker run -it -e "USER=me" -e "PASSWORD=secret" -e "RPCALLOW=127.0.0.1" chainmapper/aeriumx` and see the wallet starting.
+Type `docker run -it -e "USER=someuser" -e "PASSWORD=topsecret" -e "RPCALLOW=127.0.0.1" chainmapper/aeriumx` and see the wallet starting.
 
 Alternatively type `docker run -it -v "<path_to_config>:/config/aeriumx.conf" chainmapper/aeriumx` to use your own config.
 
