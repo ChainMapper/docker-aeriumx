@@ -1,6 +1,6 @@
 FROM chainmapper/walletbase-xenial
 	
-ENV WALLET_URL=https://github.com/aeriumcoin/AeriumX/releases/download/v2.2/AeriumX-2.2.0-x86_64-pc-linux-gnu.zip
+ENV WALLET_URL=https://github.com/aeriumcoin/AeriumX/releases/download/v2.2.1/AeriumX-2.2.1-x86_64-pc-linux-gnu.zip
 
 RUN wget $WALLET_URL -O /tmp/wallet.zip \
 	&& unzip /tmp/wallet.zip -d /usr/local/bin \
